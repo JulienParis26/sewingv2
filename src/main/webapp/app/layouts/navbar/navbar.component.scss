@@ -31,6 +31,7 @@ Logo styles
   width: 45px;
   display: inline-block;
   vertical-align: middle;
-  background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+  background: url('../../../content/images/logo.jpg') no-repeat center center;
   background-size: contain;
+  clip-path: ellipse(50% 50%); // rounded
 }

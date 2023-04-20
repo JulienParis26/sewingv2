@@ -6,6 +6,11 @@
 Bootstrap tweaks
 ===============================================================*/
 
+.btn-style {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .auto-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -40,7 +45,7 @@ Bootstrap tweaks
   margin-right: 10px; /* ajustez ce paramètre en fonction de l'espacement souhaité */
 }
 
-.input[type="text"] {
+.input[type='text'] {
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 5px 10px;
@@ -124,7 +129,7 @@ Generic styles
 /* other generic styles */
 
 .jh-card {
-  padding: 1.5%;
+  padding: 1%;
   margin-top: 20px;
   border: none;
 }
