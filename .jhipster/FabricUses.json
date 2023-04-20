@@ -1,0 +1,37 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419065746",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "fabric_uses",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "5"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Tissu - pour robe, pour pantalon, sous-vêtements",
+  "jpaMetamodelFiltering": false,
+  "name": "FabricUses",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabric",
+      "otherEntityRelationshipName": "uses",
+      "ownerSide": false,
+      "relationshipName": "fabrics",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

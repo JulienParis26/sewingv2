@@ -1,0 +1,105 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419065749",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "patron",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ref",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "PatronType",
+      "fieldValues": "PAPER,PDF,ONLINE"
+    },
+    {
+      "fieldName": "sexe",
+      "fieldType": "Category",
+      "fieldValues": "KIDS,MAN,WOMAN"
+    },
+    {
+      "fieldName": "buyDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "publicationDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "creator",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "difficultLevel",
+      "fieldType": "DifficultLevel",
+      "fieldValues": "BEGINNER,INTERMEDIATE,EXPERT"
+    },
+    {
+      "fieldName": "fabricQualification",
+      "fieldType": "Qualification",
+      "fieldValues": "SHORT,EXTENSIBLE,RIGID"
+    },
+    {
+      "fieldName": "requiredFootage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requiredLaize",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clothingType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pictureTechnicalDrawing",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["minbytes", "maxbytes"],
+      "fieldValidateRulesMaxbytes": "1024",
+      "fieldValidateRulesMinbytes": "256"
+    },
+    {
+      "fieldName": "carriedPicture1",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["required", "minbytes", "maxbytes"],
+      "fieldValidateRulesMaxbytes": "1024",
+      "fieldValidateRulesMinbytes": "256"
+    },
+    {
+      "fieldName": "carriedPicture2",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["minbytes", "maxbytes"],
+      "fieldValidateRulesMaxbytes": "1024",
+      "fieldValidateRulesMinbytes": "256"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Patron",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "patron",
+      "relationshipName": "projects",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

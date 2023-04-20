@@ -1,0 +1,512 @@
+<!-- styles CSS de Bootstrap -->
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+
+<!-- scripts JavaScript de jQuery et Bootstrap -->
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+<header class='header'>
+  <div class='d-flex justify-content-center'>
+    <div class='col-8'>
+      <form class='form' name='editForm' role='form' novalidate (ngSubmit)='save()' [formGroup]='editForm'>
+        <h2 id='jhi-fabric-heading' data-cy='FabricCreateUpdateHeading'
+            jhiTranslate='couturev2App.fabric.home.createOrEditLabel'>
+          Créer ou éditer un Fabric
+        </h2>
+
+        <div class='auto-grid'>
+          <jhi-alert-error></jhi-alert-error>
+
+          <div class='div' *ngIf='editForm.controls.id.value !== null'>
+            <label class='label' jhiTranslate='global.field.id' for='field_id'>ID</label>
+            <input type='number' class='form-control' name='id' id='field_id' data-cy='id' formControlName='id'
+                   [readonly]='true' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.name' for='field_name'>Name</label>
+            <input type='text' class='' name='name' id='field_name' data-cy='name' formControlName='name' />
+            <div
+              *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+              <small class='form-text text-danger' *ngIf="editForm.get('name')?.errors?.required"
+                     jhiTranslate='entity.validation.required'>
+                Ce champ est obligatoire.
+              </small>
+            </div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.ref' for='field_ref'>Ref</label>
+            <input type='text' class='' name='ref' id='field_ref' data-cy='ref' formControlName='ref' />
+          </div>
+
+
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.uni' for='field_uni'>Uni</label>
+            <input type='checkbox' class='form-check' name='uni' id='field_uni' data-cy='uni' formControlName='uni' />
+            <div *ngIf="editForm.get('uni')!.invalid && (editForm.get('uni')!.dirty || editForm.get('uni')!.touched)">
+              <small class='form-text text-danger' *ngIf="editForm.get('uni')?.errors?.required"
+                     jhiTranslate='entity.validation.required'>
+                Ce champ est obligatoire.
+              </small>
+            </div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.buySize' for='field_buySize'>Buy Size</label>
+            <input type='text' class='form-control' name='buySize' id='field_buySize' data-cy='buySize'
+                   formControlName='buySize' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.elastic' for='field_elastic'>Elastic</label>
+            <input type='checkbox' class='form-check' name='elastic' id='field_elastic' data-cy='elastic'
+                   formControlName='elastic' />
+            <div
+              *ngIf="editForm.get('elastic')!.invalid && (editForm.get('elastic')!.dirty || editForm.get('elastic')!.touched)">
+              <small
+                class='form-text text-danger'
+                *ngIf="editForm.get('elastic')?.errors?.required"
+                jhiTranslate='entity.validation.required'
+              >
+                Ce champ est obligatoire.
+              </small>
+            </div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.elasticRate' for='field_elasticRate'>Elastic
+              Rate</label>
+            <input
+              type='number'
+              class='form-control'
+              name='elasticRate'
+              id='field_elasticRate'
+              data-cy='elasticRate'
+              formControlName='elasticRate'
+            />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.rating' for='field_rating'>Rating</label>
+            <input type='number' class='form-control' name='rating' id='field_rating' data-cy='rating'
+                   formControlName='rating' />
+            <div
+              *ngIf="editForm.get('rating')!.invalid && (editForm.get('rating')!.dirty || editForm.get('rating')!.touched)">
+              <small
+                class='form-text text-danger'
+                *ngIf="editForm.get('rating')?.errors?.min"
+                jhiTranslate='entity.validation.min'
+                [translateValues]='{ min: 1 }'
+              >
+                Ce champ doit être supérieur à 1.
+              </small>
+              <small
+                class='form-text text-danger'
+                *ngIf="editForm.get('rating')?.errors?.max"
+                jhiTranslate='entity.validation.max'
+                [translateValues]='{ max: 5 }'
+              >
+                Ce champ doit être inférieur à 5.
+              </small>
+              <small class='form-text text-danger' [hidden]="!editForm.get('rating')?.errors?.number"
+                     jhiTranslate='entity.validation.number'>
+                Ce champ doit être un nombre.
+              </small>
+            </div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.colorName' for='field_colorName'>Color
+              Name</label>
+            <input type='text' class='form-control' name='colorName' id='field_colorName' data-cy='colorName'
+                   formControlName='colorName' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.color1' for='field_color1'>Color 1</label>
+            <input type='text' class='form-control' name='color1' id='field_color1' data-cy='color1'
+                   formControlName='color1' />
+            <div
+              *ngIf="editForm.get('color1')!.invalid && (editForm.get('color1')!.dirty || editForm.get('color1')!.touched)">
+              <small class='form-text text-danger' *ngIf="editForm.get('color1')?.errors?.required"
+                     jhiTranslate='entity.validation.required'>
+                Ce champ est obligatoire.
+              </small>
+            </div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.color2' for='field_color2'>Color 2</label>
+            <input type='text' class='form-control' name='color2' id='field_color2' data-cy='color2'
+                   formControlName='color2' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.color3' for='field_color3'>Color 3</label>
+            <input type='text' class='form-control' name='color3' id='field_color3' data-cy='color3'
+                   formControlName='color3' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.laize' for='field_laize'>Laize</label>
+            <input type='number' class='form-control' name='laize' id='field_laize' data-cy='laize'
+                   formControlName='laize' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.meterPrice' for='field_meterPrice'>Meter
+              Price</label>
+            <input
+              type='number'
+              class='form-control'
+              name='meterPrice'
+              id='field_meterPrice'
+              data-cy='meterPrice'
+              formControlName='meterPrice'
+            />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.meterBuy' for='field_meterBuy'>Meter Buy</label>
+            <input type='number' class='form-control' name='meterBuy' id='field_meterBuy' data-cy='meterBuy'
+                   formControlName='meterBuy' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.meterInStock' for='field_meterInStock'>Meter In
+              Stock</label>
+            <input
+              type='number'
+              class='form-control'
+              name='meterInStock'
+              id='field_meterInStock'
+              data-cy='meterInStock'
+              formControlName='meterInStock'
+            />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.buyDate' for='field_buyDate'>Buy Date</label>
+            <div class='input-group'>
+              <input
+                id='field_buyDate'
+                data-cy='buyDate'
+                type='text'
+                class='form-control'
+                name='buyDate'
+                ngbDatepicker
+                #buyDateDp='ngbDatepicker'
+                formControlName='buyDate'
+              />
+              <button type='button' class='btn btn-secondary' (click)='buyDateDp.toggle()'>
+                <fa-icon icon='calendar-alt'></fa-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.gramPerMeter' for='field_gramPerMeter'>Gram Per
+              Meter</label>
+            <input
+              type='number'
+              class='form-control'
+              name='gramPerMeter'
+              id='field_gramPerMeter'
+              data-cy='gramPerMeter'
+              formControlName='gramPerMeter'
+            />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.sizeMin' for='field_sizeMin'>Size Min</label>
+            <input type='number' class='form-control' name='sizeMin' id='field_sizeMin' data-cy='sizeMin'
+                   formControlName='sizeMin' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.sizeMax' for='field_sizeMax'>Size Max</label>
+            <input type='number' class='form-control' name='sizeMax' id='field_sizeMax' data-cy='sizeMax'
+                   formControlName='sizeMax' />
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.image1' for='field_image1'>Image 1</label>
+            <div>
+              <img
+                [src]="'data:' + editForm.get('image1ContentType')!.value + ';base64,' + editForm.get('image1')!.value"
+                style='max-height: 100px'
+                *ngIf="editForm.get('image1')!.value"
+                alt='fabric image'
+              />
+              <div *ngIf="editForm.get('image1')!.value" class='form-text text-danger clearfix'>
+                <span class='pull-start'>{{ editForm.get('image1ContentType')!.value }}
+                  , {{ byteSize(editForm.get('image1')!.value!) }}</span>
+                <button
+                  type='button'
+                  (click)="clearInputImage('image1', 'image1ContentType', 'file_image1')"
+                  class='btn btn-secondary btn-xs pull-end'
+                >
+                  <fa-icon icon='times'></fa-icon>
+                </button>
+              </div>
+              <input
+                type='file'
+                id='file_image1'
+                data-cy='image1'
+                (change)="setFileData($event, 'image1', true)"
+                accept='image/*'
+                jhiTranslate='entity.action.addimage'
+              />
+            </div>
+            <input type='hidden' class='form-control' name='image1' id='field_image1' data-cy='image1'
+                   formControlName='image1' />
+            <input
+              type='hidden'
+              class='form-control'
+              name='image1ContentType'
+              id='field_image1ContentType'
+              formControlName='image1ContentType'
+            />
+            <div
+              *ngIf="editForm.get('image1')!.invalid && (editForm.get('image1')!.dirty || editForm.get('image1')!.touched)">
+              <small class='form-text text-danger' *ngIf="editForm.get('image1')?.errors?.required"
+                     jhiTranslate='entity.validation.required'>
+                Ce champ est obligatoire.
+              </small>
+            </div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.image2' for='field_image2'>Image 2</label>
+            <div>
+              <img
+                [src]="'data:' + editForm.get('image2ContentType')!.value + ';base64,' + editForm.get('image2')!.value"
+                style='max-height: 100px'
+                *ngIf="editForm.get('image2')!.value"
+                alt='fabric image'
+              />
+              <div *ngIf="editForm.get('image2')!.value" class='form-text text-danger clearfix'>
+                <span class='pull-start'>{{ editForm.get('image2ContentType')!.value }}
+                  , {{ byteSize(editForm.get('image2')!.value!) }}</span>
+                <button
+                  type='button'
+                  (click)="clearInputImage('image2', 'image2ContentType', 'file_image2')"
+                  class='btn btn-secondary btn-xs pull-end'
+                >
+                  <fa-icon icon='times'></fa-icon>
+                </button>
+              </div>
+              <input
+                type='file'
+                id='file_image2'
+                data-cy='image2'
+                (change)="setFileData($event, 'image2', true)"
+                accept='image/*'
+                jhiTranslate='entity.action.addimage'
+              />
+            </div>
+            <input type='hidden' class='form-control' name='image2' id='field_image2' data-cy='image2'
+                   formControlName='image2' />
+            <input
+              type='hidden'
+              class='form-control'
+              name='image2ContentType'
+              id='field_image2ContentType'
+              formControlName='image2ContentType'
+            />
+            <div
+              *ngIf="editForm.get('image2')!.invalid && (editForm.get('image2')!.dirty || editForm.get('image2')!.touched)"></div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.image3' for='field_image3'>Image 3</label>
+            <div>
+              <img
+                [src]="'data:' + editForm.get('image3ContentType')!.value + ';base64,' + editForm.get('image3')!.value"
+                style='max-height: 100px'
+                *ngIf="editForm.get('image3')!.value"
+                alt='fabric image'
+              />
+              <div *ngIf="editForm.get('image3')!.value" class='form-text text-danger clearfix'>
+                <span class='pull-start'>{{ editForm.get('image3ContentType')!.value }}
+                  , {{ byteSize(editForm.get('image3')!.value!) }}</span>
+                <button
+                  type='button'
+                  (click)="clearInputImage('image3', 'image3ContentType', 'file_image3')"
+                  class='btn btn-secondary btn-xs pull-end'
+                >
+                  <fa-icon icon='times'></fa-icon>
+                </button>
+              </div>
+              <input
+                type='file'
+                id='file_image3'
+                data-cy='image3'
+                (change)="setFileData($event, 'image3', true)"
+                accept='image/*'
+                jhiTranslate='entity.action.addimage'
+              />
+            </div>
+            <input type='hidden' class='form-control' name='image3' id='field_image3' data-cy='image3'
+                   formControlName='image3' />
+            <input
+              type='hidden'
+              class='form-control'
+              name='image3ContentType'
+              id='field_image3ContentType'
+              formControlName='image3ContentType'
+            />
+            <div
+              *ngIf="editForm.get('image3')!.invalid && (editForm.get('image3')!.dirty || editForm.get('image3')!.touched)"></div>
+          </div>
+
+          <div class='div'>
+            <label class='label' jhiTranslate='couturev2App.fabric.from' for='field_from'>From</label>
+            <select
+              class='form-control'
+              id='field_from'
+              data-cy='from'
+              name='from'
+              formControlName='from'
+              [compareWith]='compareFabricEditor'
+            >
+              <option [ngValue]='null'></option>
+              <option [ngValue]='fabricEditorOption' *ngFor='let fabricEditorOption of fabricEditorsSharedCollection'>
+                {{ fabricEditorOption.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class='div'>
+            <label jhiTranslate='couturev2App.fabric.fabricTypes' for='field_fabricTypes'>Fabric Types</label>
+            <select
+              class='form-control'
+              id='field_fabricTypes'
+              data-cy='fabricTypes'
+              multiple
+              name='fabricTypes'
+              formControlName='fabricTypes'
+              [compareWith]='compareFabricTypes'
+            >
+              <option [ngValue]='fabricTypesOption' *ngFor='let fabricTypesOption of fabricTypesSharedCollection'>
+                {{ fabricTypesOption.name }}
+              </option>
+            </select>
+          </div>
+          <div
+            *ngIf="editForm.get(['fabricTypes'])!.invalid && (editForm.get(['fabricTypes'])!.dirty || editForm.get(['fabricTypes'])!.touched)"
+          >
+            <small
+              class='form-text text-danger'
+              *ngIf="editForm.get(['fabricTypes'])?.errors?.required"
+              jhiTranslate='entity.validation.required'
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+
+          <div class='div'>
+            <label jhiTranslate='couturev2App.fabric.materials' for='field_materials'>Materials</label>
+            <select
+              class='form-control'
+              id='field_materials'
+              data-cy='materials'
+              multiple
+              name='materials'
+              formControlName='materials'
+              [compareWith]='compareMaterials'
+            >
+              <option [ngValue]='materialsOption' *ngFor='let materialsOption of materialsSharedCollection'>
+                {{ materialsOption.name }}
+              </option>
+            </select>
+          </div>
+          <div
+            *ngIf="editForm.get(['materials'])!.invalid && (editForm.get(['materials'])!.dirty || editForm.get(['materials'])!.touched)">
+            <small
+              class='form-text text-danger'
+              *ngIf="editForm.get(['materials'])?.errors?.required"
+              jhiTranslate='entity.validation.required'
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+
+          <div class='div'>
+            <label jhiTranslate='couturev2App.fabric.uses' for='field_uses'>Uses</label>
+            <select
+              class='form-control'
+              id='field_uses'
+              data-cy='uses'
+              multiple
+              name='uses'
+              formControlName='uses'
+              [compareWith]='compareFabricUses'
+            >
+              <option [ngValue]='fabricUsesOption' *ngFor='let fabricUsesOption of fabricUsesSharedCollection'>
+                {{ fabricUsesOption.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class='div'>
+            <label jhiTranslate='couturev2App.fabric.maintenances' for='field_maintenances'>Maintenances</label>
+            <select
+              class='form-control'
+              id='field_maintenances'
+              data-cy='maintenances'
+              multiple
+              name='maintenances'
+              formControlName='maintenances'
+              [compareWith]='compareFabricMaintenance'
+            >
+              <option [ngValue]='fabricMaintenanceOption'
+                      *ngFor='let fabricMaintenanceOption of fabricMaintenancesSharedCollection'>
+                {{ fabricMaintenanceOption.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class='div'>
+            <label jhiTranslate='couturev2App.fabric.labels' for='field_labels'>Labels</label>
+            <select
+              class='form-control'
+              id='field_labels'
+              data-cy='labels'
+              multiple
+              name='labels'
+              formControlName='labels'
+              [compareWith]='compareFabricLabels'
+            >
+              <option [ngValue]='fabricLabelsOption' *ngFor='let fabricLabelsOption of fabricLabelsSharedCollection'>
+                {{ fabricLabelsOption.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <button type='button' id='cancel-save' data-cy='entityCreateCancelButton' class='btn btn-secondary'
+                  (click)='previousState()'>
+            <fa-icon icon='ban'></fa-icon>&nbsp;<span jhiTranslate='entity.action.cancel'>Annuler</span>
+          </button>
+
+          <button
+            type='submit'
+            id='save-entity'
+            data-cy='entityCreateSaveButton'
+            [disabled]='editForm.invalid || isSaving'
+            class='btn btn-primary'
+          >
+            <fa-icon icon='save'></fa-icon>&nbsp;<span jhiTranslate='entity.action.save'>Sauvegarder</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</header>
+
+
+

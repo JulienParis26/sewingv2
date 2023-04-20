@@ -1,0 +1,360 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-patron-heading" data-cy="PatronCreateUpdateHeading" jhiTranslate="couturev2App.patron.home.createOrEditLabel">
+        Créer ou éditer un Patron
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.ref" for="field_ref">Ref</label>
+          <input type="text" class="form-control" name="ref" id="field_ref" data-cy="ref" formControlName="ref" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.type" for="field_type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'couturev2App.PatronType.null' | translate }}</option>
+            <option *ngFor="let patronType of patronTypeValues" [value]="patronType">
+              {{ 'couturev2App.PatronType.' + patronType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.sexe" for="field_sexe">Sexe</label>
+          <select class="form-control" name="sexe" formControlName="sexe" id="field_sexe" data-cy="sexe">
+            <option [ngValue]="null">{{ 'couturev2App.Category.null' | translate }}</option>
+            <option *ngFor="let category of categoryValues" [value]="category">
+              {{ 'couturev2App.Category.' + category | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.buyDate" for="field_buyDate">Buy Date</label>
+          <div class="input-group">
+            <input
+              id="field_buyDate"
+              data-cy="buyDate"
+              type="text"
+              class="form-control"
+              name="buyDate"
+              ngbDatepicker
+              #buyDateDp="ngbDatepicker"
+              formControlName="buyDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="buyDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.publicationDate" for="field_publicationDate">Publication Date</label>
+          <div class="input-group">
+            <input
+              id="field_publicationDate"
+              data-cy="publicationDate"
+              type="text"
+              class="form-control"
+              name="publicationDate"
+              ngbDatepicker
+              #publicationDateDp="ngbDatepicker"
+              formControlName="publicationDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="publicationDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.creator" for="field_creator">Creator</label>
+          <input type="text" class="form-control" name="creator" id="field_creator" data-cy="creator" formControlName="creator" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.difficultLevel" for="field_difficultLevel">Difficult Level</label>
+          <select
+            class="form-control"
+            name="difficultLevel"
+            formControlName="difficultLevel"
+            id="field_difficultLevel"
+            data-cy="difficultLevel"
+          >
+            <option [ngValue]="null">{{ 'couturev2App.DifficultLevel.null' | translate }}</option>
+            <option *ngFor="let difficultLevel of difficultLevelValues" [value]="difficultLevel">
+              {{ 'couturev2App.DifficultLevel.' + difficultLevel | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.fabricQualification" for="field_fabricQualification"
+            >Fabric Qualification</label
+          >
+          <select
+            class="form-control"
+            name="fabricQualification"
+            formControlName="fabricQualification"
+            id="field_fabricQualification"
+            data-cy="fabricQualification"
+          >
+            <option [ngValue]="null">{{ 'couturev2App.Qualification.null' | translate }}</option>
+            <option *ngFor="let qualification of qualificationValues" [value]="qualification">
+              {{ 'couturev2App.Qualification.' + qualification | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.requiredFootage" for="field_requiredFootage">Required Footage</label>
+          <input
+            type="text"
+            class="form-control"
+            name="requiredFootage"
+            id="field_requiredFootage"
+            data-cy="requiredFootage"
+            formControlName="requiredFootage"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.requiredLaize" for="field_requiredLaize">Required Laize</label>
+          <input
+            type="text"
+            class="form-control"
+            name="requiredLaize"
+            id="field_requiredLaize"
+            data-cy="requiredLaize"
+            formControlName="requiredLaize"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.clothingType" for="field_clothingType">Clothing Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="clothingType"
+            id="field_clothingType"
+            data-cy="clothingType"
+            formControlName="clothingType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.price" for="field_price">Price</label>
+          <input type="text" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.pictureTechnicalDrawing" for="field_pictureTechnicalDrawing"
+            >Picture Technical Drawing</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('pictureTechnicalDrawingContentType')!.value +
+                ';base64,' +
+                editForm.get('pictureTechnicalDrawing')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('pictureTechnicalDrawing')!.value"
+              alt="patron image"
+            />
+            <div *ngIf="editForm.get('pictureTechnicalDrawing')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('pictureTechnicalDrawingContentType')!.value }},
+                {{ byteSize(editForm.get('pictureTechnicalDrawing')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('pictureTechnicalDrawing', 'pictureTechnicalDrawingContentType', 'file_pictureTechnicalDrawing')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_pictureTechnicalDrawing"
+              data-cy="pictureTechnicalDrawing"
+              (change)="setFileData($event, 'pictureTechnicalDrawing', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="pictureTechnicalDrawing"
+            id="field_pictureTechnicalDrawing"
+            data-cy="pictureTechnicalDrawing"
+            formControlName="pictureTechnicalDrawing"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="pictureTechnicalDrawingContentType"
+            id="field_pictureTechnicalDrawingContentType"
+            formControlName="pictureTechnicalDrawingContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('pictureTechnicalDrawing')!.invalid &&
+              (editForm.get('pictureTechnicalDrawing')!.dirty || editForm.get('pictureTechnicalDrawing')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.carriedPicture1" for="field_carriedPicture1">Carried Picture 1</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('carriedPicture1ContentType')!.value + ';base64,' + editForm.get('carriedPicture1')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('carriedPicture1')!.value"
+              alt="patron image"
+            />
+            <div *ngIf="editForm.get('carriedPicture1')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('carriedPicture1ContentType')!.value }}, {{ byteSize(editForm.get('carriedPicture1')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('carriedPicture1', 'carriedPicture1ContentType', 'file_carriedPicture1')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_carriedPicture1"
+              data-cy="carriedPicture1"
+              (change)="setFileData($event, 'carriedPicture1', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="carriedPicture1"
+            id="field_carriedPicture1"
+            data-cy="carriedPicture1"
+            formControlName="carriedPicture1"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="carriedPicture1ContentType"
+            id="field_carriedPicture1ContentType"
+            formControlName="carriedPicture1ContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('carriedPicture1')!.invalid &&
+              (editForm.get('carriedPicture1')!.dirty || editForm.get('carriedPicture1')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('carriedPicture1')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="couturev2App.patron.carriedPicture2" for="field_carriedPicture2">Carried Picture 2</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('carriedPicture2ContentType')!.value + ';base64,' + editForm.get('carriedPicture2')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('carriedPicture2')!.value"
+              alt="patron image"
+            />
+            <div *ngIf="editForm.get('carriedPicture2')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('carriedPicture2ContentType')!.value }}, {{ byteSize(editForm.get('carriedPicture2')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('carriedPicture2', 'carriedPicture2ContentType', 'file_carriedPicture2')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_carriedPicture2"
+              data-cy="carriedPicture2"
+              (change)="setFileData($event, 'carriedPicture2', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="carriedPicture2"
+            id="field_carriedPicture2"
+            data-cy="carriedPicture2"
+            formControlName="carriedPicture2"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="carriedPicture2ContentType"
+            id="field_carriedPicture2ContentType"
+            formControlName="carriedPicture2ContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('carriedPicture2')!.invalid &&
+              (editForm.get('carriedPicture2')!.dirty || editForm.get('carriedPicture2')!.touched)
+            "
+          ></div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

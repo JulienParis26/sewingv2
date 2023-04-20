@@ -1,0 +1,26 @@
+{
+  "couturev2App": {
+    "fabricUses": {
+      "home": {
+        "title": "FabricUses",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fabric Uses",
+        "createOrEditLabel": "Créer ou éditer un Fabric Uses",
+        "notFound": "Aucun Fabric Uses trouvé"
+      },
+      "created": "Un nouveau Fabric Uses a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fabric Uses avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fabric Uses avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fabric Uses {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fabric Uses"
+      },
+      "id": "ID",
+      "name": "Name",
+      "code": "Code",
+      "fabrics": "Fabrics"
+    }
+  }
+}

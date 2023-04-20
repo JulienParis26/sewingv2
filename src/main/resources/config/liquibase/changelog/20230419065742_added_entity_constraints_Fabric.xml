@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Fabric.
+    -->
+    <changeSet id="20230419065742-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="from_id"
+                                 baseTableName="fabric"
+                                 constraintName="fk_fabric__from_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric_editor"/>
+
+        <addForeignKeyConstraint baseColumnNames="fabric_id"
+                                 baseTableName="rel_fabric__fabric_types"
+                                 constraintName="fk_rel_fabric__fabric_types__fabric_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric"/>
+
+        <addForeignKeyConstraint baseColumnNames="fabric_types_id"
+                                 baseTableName="rel_fabric__fabric_types"
+                                 constraintName="fk_rel_fabric__fabric_types__fabric_types_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="fabric_id"
+                                 baseTableName="rel_fabric__materials"
+                                 constraintName="fk_rel_fabric__materials__fabric_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric"/>
+
+        <addForeignKeyConstraint baseColumnNames="materials_id"
+                                 baseTableName="rel_fabric__materials"
+                                 constraintName="fk_rel_fabric__materials__materials_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="materials"/>
+
+        <addForeignKeyConstraint baseColumnNames="fabric_id"
+                                 baseTableName="rel_fabric__uses"
+                                 constraintName="fk_rel_fabric__uses__fabric_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric"/>
+
+        <addForeignKeyConstraint baseColumnNames="uses_id"
+                                 baseTableName="rel_fabric__uses"
+                                 constraintName="fk_rel_fabric__uses__uses_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric_uses"/>
+
+        <addForeignKeyConstraint baseColumnNames="fabric_id"
+                                 baseTableName="rel_fabric__maintenances"
+                                 constraintName="fk_rel_fabric__maintenances__fabric_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric"/>
+
+        <addForeignKeyConstraint baseColumnNames="maintenances_id"
+                                 baseTableName="rel_fabric__maintenances"
+                                 constraintName="fk_rel_fabric__maintenances__maintenances_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric_maintenance"/>
+
+        <addForeignKeyConstraint baseColumnNames="fabric_id"
+                                 baseTableName="rel_fabric__labels"
+                                 constraintName="fk_rel_fabric__labels__fabric_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric"/>
+
+        <addForeignKeyConstraint baseColumnNames="labels_id"
+                                 baseTableName="rel_fabric__labels"
+                                 constraintName="fk_rel_fabric__labels__labels_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabric_labels"/>
+    </changeSet>
+</databaseChangeLog>

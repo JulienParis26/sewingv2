@@ -1,0 +1,26 @@
+{
+  "couturev2App": {
+    "fabricMaintenance": {
+      "home": {
+        "title": "Fabric Maintenances",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fabric Maintenance",
+        "createOrEditLabel": "Create or edit a Fabric Maintenance",
+        "notFound": "No Fabric Maintenances found"
+      },
+      "created": "A new Fabric Maintenance is created with identifier {{ param }}",
+      "updated": "A Fabric Maintenance is updated with identifier {{ param }}",
+      "deleted": "A Fabric Maintenance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fabric Maintenance {{ id }}?"
+      },
+      "detail": {
+        "title": "Fabric Maintenance"
+      },
+      "id": "ID",
+      "name": "Name",
+      "code": "Code",
+      "fabrics": "Fabrics"
+    }
+  }
+}

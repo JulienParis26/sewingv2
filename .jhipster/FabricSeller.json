@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419065743",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "fabric_seller",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "webSite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1024"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "FabricSeller",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabric",
+      "otherEntityRelationshipName": "sellers",
+      "ownerSide": true,
+      "relationshipName": "fabric",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

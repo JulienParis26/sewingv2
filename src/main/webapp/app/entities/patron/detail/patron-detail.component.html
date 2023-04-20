@@ -1,0 +1,119 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="patron">
+      <h2 data-cy="patronDetailsHeading"><span jhiTranslate="couturev2App.patron.detail.title">Patron</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ patron.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.name">Name</span></dt>
+        <dd>
+          <span>{{ patron.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.ref">Ref</span></dt>
+        <dd>
+          <span>{{ patron.ref }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'couturev2App.PatronType.' + patron.type }}">{{ patron.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.sexe">Sexe</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'couturev2App.Category.' + patron.sexe }}">{{ patron.sexe }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.buyDate">Buy Date</span></dt>
+        <dd>
+          <span>{{ patron.buyDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.publicationDate">Publication Date</span></dt>
+        <dd>
+          <span>{{ patron.publicationDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.creator">Creator</span></dt>
+        <dd>
+          <span>{{ patron.creator }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.difficultLevel">Difficult Level</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'couturev2App.DifficultLevel.' + patron.difficultLevel }}">{{ patron.difficultLevel }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.fabricQualification">Fabric Qualification</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'couturev2App.Qualification.' + patron.fabricQualification }}">{{ patron.fabricQualification }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.requiredFootage">Required Footage</span></dt>
+        <dd>
+          <span>{{ patron.requiredFootage }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.requiredLaize">Required Laize</span></dt>
+        <dd>
+          <span>{{ patron.requiredLaize }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.clothingType">Clothing Type</span></dt>
+        <dd>
+          <span>{{ patron.clothingType }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.price">Price</span></dt>
+        <dd>
+          <span>{{ patron.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.pictureTechnicalDrawing">Picture Technical Drawing</span></dt>
+        <dd>
+          <div *ngIf="patron.pictureTechnicalDrawing">
+            <a (click)="openFile(patron.pictureTechnicalDrawing, patron.pictureTechnicalDrawingContentType)">
+              <img
+                [src]="'data:' + patron.pictureTechnicalDrawingContentType + ';base64,' + patron.pictureTechnicalDrawing"
+                style="max-width: 100%"
+                alt="patron image"
+              />
+            </a>
+            {{ patron.pictureTechnicalDrawingContentType }}, {{ byteSize(patron.pictureTechnicalDrawing) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.carriedPicture1">Carried Picture 1</span></dt>
+        <dd>
+          <div *ngIf="patron.carriedPicture1">
+            <a (click)="openFile(patron.carriedPicture1, patron.carriedPicture1ContentType)">
+              <img
+                [src]="'data:' + patron.carriedPicture1ContentType + ';base64,' + patron.carriedPicture1"
+                style="max-width: 100%"
+                alt="patron image"
+              />
+            </a>
+            {{ patron.carriedPicture1ContentType }}, {{ byteSize(patron.carriedPicture1) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.patron.carriedPicture2">Carried Picture 2</span></dt>
+        <dd>
+          <div *ngIf="patron.carriedPicture2">
+            <a (click)="openFile(patron.carriedPicture2, patron.carriedPicture2ContentType)">
+              <img
+                [src]="'data:' + patron.carriedPicture2ContentType + ';base64,' + patron.carriedPicture2"
+                style="max-width: 100%"
+                alt="patron image"
+              />
+            </a>
+            {{ patron.carriedPicture2ContentType }}, {{ byteSize(patron.carriedPicture2) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/patron', patron.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

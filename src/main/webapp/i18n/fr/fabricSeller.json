@@ -1,0 +1,27 @@
+{
+  "couturev2App": {
+    "fabricSeller": {
+      "home": {
+        "title": "FabricSellers",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fabric Seller",
+        "createOrEditLabel": "Créer ou éditer un Fabric Seller",
+        "notFound": "Aucun Fabric Seller trouvé"
+      },
+      "created": "Un nouveau Fabric Seller a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fabric Seller avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fabric Seller avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fabric Seller {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fabric Seller"
+      },
+      "id": "ID",
+      "name": "Name",
+      "webSite": "Web Site",
+      "description": "Description",
+      "fabric": "Fabric"
+    }
+  }
+}

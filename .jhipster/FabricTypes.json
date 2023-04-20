@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419065745",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "fabric_types",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "5"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1024"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Tissu - type\\nBouclette, jersey, bord cote, jean",
+  "jpaMetamodelFiltering": false,
+  "name": "FabricTypes",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabric",
+      "otherEntityRelationshipName": "fabricTypes",
+      "ownerSide": false,
+      "relationshipName": "fabrics",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

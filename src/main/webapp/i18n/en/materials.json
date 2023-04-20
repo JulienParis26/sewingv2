@@ -1,0 +1,27 @@
+{
+  "couturev2App": {
+    "materials": {
+      "home": {
+        "title": "Materials",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Materials",
+        "createOrEditLabel": "Create or edit a Materials",
+        "notFound": "No Materials found"
+      },
+      "created": "A new Materials is created with identifier {{ param }}",
+      "updated": "A Materials is updated with identifier {{ param }}",
+      "deleted": "A Materials is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Materials {{ id }}?"
+      },
+      "detail": {
+        "title": "Materials"
+      },
+      "id": "ID",
+      "name": "Name",
+      "webSite": "Web Site",
+      "description": "Description",
+      "fabrics": "Fabrics"
+    }
+  }
+}

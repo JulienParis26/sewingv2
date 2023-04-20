@@ -1,0 +1,172 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fabric">
+      <h2 data-cy="fabricDetailsHeading"><span jhiTranslate="couturev2App.fabric.detail.title">Fabric</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fabric.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.name">Name</span></dt>
+        <dd>
+          <span>{{ fabric.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.ref">Ref</span></dt>
+        <dd>
+          <span>{{ fabric.ref }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.uni">Uni</span></dt>
+        <dd>
+          <span>{{ fabric.uni }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.buySize">Buy Size</span></dt>
+        <dd>
+          <span>{{ fabric.buySize }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.elastic">Elastic</span></dt>
+        <dd>
+          <span>{{ fabric.elastic }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.elasticRate">Elastic Rate</span></dt>
+        <dd>
+          <span>{{ fabric.elasticRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.rating">Rating</span></dt>
+        <dd>
+          <span>{{ fabric.rating }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.colorName">Color Name</span></dt>
+        <dd>
+          <span>{{ fabric.colorName }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.color1">Color 1</span></dt>
+        <dd>
+          <span>{{ fabric.color1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.color2">Color 2</span></dt>
+        <dd>
+          <span>{{ fabric.color2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.color3">Color 3</span></dt>
+        <dd>
+          <span>{{ fabric.color3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.laize">Laize</span></dt>
+        <dd>
+          <span>{{ fabric.laize }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.meterPrice">Meter Price</span></dt>
+        <dd>
+          <span>{{ fabric.meterPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.meterBuy">Meter Buy</span></dt>
+        <dd>
+          <span>{{ fabric.meterBuy }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.meterInStock">Meter In Stock</span></dt>
+        <dd>
+          <span>{{ fabric.meterInStock }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.buyDate">Buy Date</span></dt>
+        <dd>
+          <span>{{ fabric.buyDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.gramPerMeter">Gram Per Meter</span></dt>
+        <dd>
+          <span>{{ fabric.gramPerMeter }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.sizeMin">Size Min</span></dt>
+        <dd>
+          <span>{{ fabric.sizeMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.sizeMax">Size Max</span></dt>
+        <dd>
+          <span>{{ fabric.sizeMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.image1">Image 1</span></dt>
+        <dd>
+          <div *ngIf="fabric.image1">
+            <a (click)="openFile(fabric.image1, fabric.image1ContentType)">
+              <img [src]="'data:' + fabric.image1ContentType + ';base64,' + fabric.image1" style="max-width: 100%" alt="fabric image" />
+            </a>
+            {{ fabric.image1ContentType }}, {{ byteSize(fabric.image1) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.image2">Image 2</span></dt>
+        <dd>
+          <div *ngIf="fabric.image2">
+            <a (click)="openFile(fabric.image2, fabric.image2ContentType)">
+              <img [src]="'data:' + fabric.image2ContentType + ';base64,' + fabric.image2" style="max-width: 100%" alt="fabric image" />
+            </a>
+            {{ fabric.image2ContentType }}, {{ byteSize(fabric.image2) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.image3">Image 3</span></dt>
+        <dd>
+          <div *ngIf="fabric.image3">
+            <a (click)="openFile(fabric.image3, fabric.image3ContentType)">
+              <img [src]="'data:' + fabric.image3ContentType + ';base64,' + fabric.image3" style="max-width: 100%" alt="fabric image" />
+            </a>
+            {{ fabric.image3ContentType }}, {{ byteSize(fabric.image3) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.from">From</span></dt>
+        <dd>
+          <div *ngIf="fabric.from">
+            <a [routerLink]="['/fabric-editor', fabric.from.id, 'view']">{{ fabric.from.name }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.fabricTypes">Fabric Types</span></dt>
+        <dd>
+          <span *ngFor="let fabricTypes of fabric.fabricTypes; let last = last">
+            <a [routerLink]="['/fabric-types', fabricTypes.id, 'view']">{{ fabricTypes.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.materials">Materials</span></dt>
+        <dd>
+          <span *ngFor="let materials of fabric.materials; let last = last">
+            <a [routerLink]="['/materials', materials.id, 'view']">{{ materials.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.uses">Uses</span></dt>
+        <dd>
+          <span *ngFor="let uses of fabric.uses; let last = last">
+            <a [routerLink]="['/fabric-uses', uses.id, 'view']">{{ uses.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.maintenances">Maintenances</span></dt>
+        <dd>
+          <span *ngFor="let maintenances of fabric.maintenances; let last = last">
+            <a [routerLink]="['/fabric-maintenance', maintenances.id, 'view']">{{ maintenances.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="couturev2App.fabric.labels">Labels</span></dt>
+        <dd>
+          <span *ngFor="let labels of fabric.labels; let last = last">
+            <a [routerLink]="['/fabric-labels', labels.id, 'view']">{{ labels.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/fabric', fabric.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

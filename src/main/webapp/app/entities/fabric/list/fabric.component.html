@@ -1,0 +1,256 @@
+<div>
+  <h2 id="page-heading" data-cy="FabricHeading">
+    <span jhiTranslate="couturev2App.fabric.home.title">Fabrics</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="couturev2App.fabric.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-fabric"
+        [routerLink]="['/fabric/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="couturev2App.fabric.home.createLabel"> Créer un nouveau Fabric </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="fabrics?.length === 0">
+    <span jhiTranslate="couturev2App.fabric.home.notFound">Aucun Fabric trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="fabrics && fabrics.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ref">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.ref">Ref</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uni">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.uni">Uni</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="buySize">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.buySize">Buy Size</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="elastic">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.elastic">Elastic</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="elasticRate">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.elasticRate">Elastic Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rating">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.rating">Rating</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="colorName">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.colorName">Color Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="color1">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.color1">Color 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="color2">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.color2">Color 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="color3">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.color3">Color 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="laize">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.laize">Laize</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="meterPrice">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.meterPrice">Meter Price</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="meterBuy">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.meterBuy">Meter Buy</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="meterInStock">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.meterInStock">Meter In Stock</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="buyDate">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.buyDate">Buy Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gramPerMeter">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.gramPerMeter">Gram Per Meter</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sizeMin">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.sizeMin">Size Min</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sizeMax">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.sizeMax">Size Max</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="image1">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.image1">Image 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="image2">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.image2">Image 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="image3">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.image3">Image 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="from.name">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.fabric.from">From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let fabric of fabrics; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/fabric', fabric.id, 'view']">{{ fabric.id }}</a>
+          </td>
+          <td>{{ fabric.name }}</td>
+          <td>{{ fabric.ref }}</td>
+          <td>{{ fabric.uni }}</td>
+          <td>{{ fabric.buySize }}</td>
+          <td>{{ fabric.elastic }}</td>
+          <td>{{ fabric.elasticRate }}</td>
+          <td>{{ fabric.rating }}</td>
+          <td>{{ fabric.colorName }}</td>
+          <td>{{ fabric.color1 }}</td>
+          <td>{{ fabric.color2 }}</td>
+          <td>{{ fabric.color3 }}</td>
+          <td>{{ fabric.laize }}</td>
+          <td>{{ fabric.meterPrice }}</td>
+          <td>{{ fabric.meterBuy }}</td>
+          <td>{{ fabric.meterInStock }}</td>
+          <td>{{ fabric.buyDate | formatMediumDate }}</td>
+          <td>{{ fabric.gramPerMeter }}</td>
+          <td>{{ fabric.sizeMin }}</td>
+          <td>{{ fabric.sizeMax }}</td>
+          <td>
+            <a *ngIf="fabric.image1" (click)="openFile(fabric.image1, fabric.image1ContentType)">
+              <img [src]="'data:' + fabric.image1ContentType + ';base64,' + fabric.image1" style="max-height: 30px" alt="fabric image" />
+            </a>
+            <span *ngIf="fabric.image1">{{ fabric.image1ContentType }}, {{ byteSize(fabric.image1) }}</span>
+          </td>
+          <td>
+            <a *ngIf="fabric.image2" (click)="openFile(fabric.image2, fabric.image2ContentType)">
+              <img [src]="'data:' + fabric.image2ContentType + ';base64,' + fabric.image2" style="max-height: 30px" alt="fabric image" />
+            </a>
+            <span *ngIf="fabric.image2">{{ fabric.image2ContentType }}, {{ byteSize(fabric.image2) }}</span>
+          </td>
+          <td>
+            <a *ngIf="fabric.image3" (click)="openFile(fabric.image3, fabric.image3ContentType)">
+              <img [src]="'data:' + fabric.image3ContentType + ';base64,' + fabric.image3" style="max-height: 30px" alt="fabric image" />
+            </a>
+            <span *ngIf="fabric.image3">{{ fabric.image3ContentType }}, {{ byteSize(fabric.image3) }}</span>
+          </td>
+          <td>
+            <div *ngIf="fabric.from">
+              <a [routerLink]="['/fabric-editor', fabric.from.id, 'view']">{{ fabric.from.name }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/fabric', fabric.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/fabric', fabric.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(fabric)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

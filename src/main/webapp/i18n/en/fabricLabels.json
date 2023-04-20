@@ -1,0 +1,26 @@
+{
+  "couturev2App": {
+    "fabricLabels": {
+      "home": {
+        "title": "Fabric Labels",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fabric Labels",
+        "createOrEditLabel": "Create or edit a Fabric Labels",
+        "notFound": "No Fabric Labels found"
+      },
+      "created": "A new Fabric Labels is created with identifier {{ param }}",
+      "updated": "A Fabric Labels is updated with identifier {{ param }}",
+      "deleted": "A Fabric Labels is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fabric Labels {{ id }}?"
+      },
+      "detail": {
+        "title": "Fabric Labels"
+      },
+      "id": "ID",
+      "name": "Name",
+      "code": "Code",
+      "fabrics": "Fabrics"
+    }
+  }
+}

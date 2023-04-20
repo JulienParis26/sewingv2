@@ -1,0 +1,26 @@
+{
+  "couturev2App": {
+    "fabricMaintenance": {
+      "home": {
+        "title": "FabricMaintenances",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fabric Maintenance",
+        "createOrEditLabel": "Créer ou éditer un Fabric Maintenance",
+        "notFound": "Aucun Fabric Maintenance trouvé"
+      },
+      "created": "Un nouveau Fabric Maintenance a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fabric Maintenance avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fabric Maintenance avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fabric Maintenance {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fabric Maintenance"
+      },
+      "id": "ID",
+      "name": "Name",
+      "code": "Code",
+      "fabrics": "Fabrics"
+    }
+  }
+}

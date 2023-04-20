@@ -1,0 +1,159 @@
+
+entity FabricEditor {
+	name String,
+    printDate LocalDate,
+    number String,
+    editor Editors,
+	language Language,
+    price BigDecimal,
+    image Blob
+}
+
+enum Editors {
+	BURDA, LA_MAISON_VICTOR, OTTOBRE, INDEPTS, COUTURE_ACTUELLE
+}
+
+entity Fabric {
+    name String required,
+    ref String,
+    uni Boolean required,
+    buySize String,
+    elastic Boolean required,
+    elasticRate Float,
+    rating Integer min(1) max(5),
+    colorName String,
+    color1 String required,
+    color2 String ,
+    color3 String ,
+    laize Integer,
+    meterPrice Float,
+    meterBuy Float,
+    meterInStock Float,
+    buyDate LocalDate,
+    gramPerMeter Integer,
+    sizeMin Integer,
+    sizeMax Integer,
+    buyDate LocalDate,
+	image1 ImageBlob  required minbytes (256) maxbytes (1024),
+    image2 ImageBlob   minbytes (256) maxbytes (1024),
+    image3 ImageBlob   minbytes (256) maxbytes (1024),
+}
+
+entity FabricSeller {
+    name String required,
+    webSite String,
+    description String maxlength (1024)
+}
+
+entity Materials {
+	name String required,
+    webSite String,
+    description String maxlength (1024)
+}
+
+/** Tissu - type
+* Bouclette, jersey, bord cote, jean
+*/
+entity FabricTypes {
+	name String required,
+    code String required minlength(5) 
+    description String maxlength (1024)
+}
+
+/** Tissu - pour robe, pour pantalon, sous-vêtements
+*/
+entity FabricUses {
+	name String required,
+    code String required minlength (5) 
+}
+
+/** Tissu - ecotex, got
+*/
+entity FabricLabels {
+	name String required,
+    code String required minlength (3) 
+}
+
+/** Tissu - entretien, lavable, repassable, etc...
+*/
+entity FabricMaintenance {
+	name String required,
+    code String required minlength (3) 
+}
+
+enum PatronType{
+	PAPER, PDF, ONLINE
+}
+
+enum Category{
+	KIDS, MAN, WOMAN
+}
+
+enum DifficultLevel{
+	BEGINNER, INTERMEDIATE, EXPERT
+}
+
+enum Qualification{
+	SHORT, EXTENSIBLE, RIGID
+}
+
+entity Patron {
+    name String required,
+    ref String,
+    type PatronType,
+    sexe Category,
+    buyDate LocalDate,
+    publicationDate LocalDate,
+    creator String,
+    type PatronType,
+  	difficultLevel DifficultLevel,
+    fabricQualification Qualification,
+    requiredFootage String,
+    requiredLaize String,
+    clothingType String,
+    price String,
+    pictureTechnicalDrawing ImageBlob   minbytes (256) maxbytes (1024),
+    carriedPicture1 ImageBlob  required minbytes (256) maxbytes (1024),
+    carriedPicture2 ImageBlob   minbytes (256) maxbytes (1024),
+    
+}
+
+entity Project {
+    name String,
+    ref String,
+    creationDate LocalDate,
+    haberdasheryUse String,
+    accessoryUse String,
+    image1 Blob
+    image2 Blob
+    image3 Blob
+    image4 Blob
+}
+
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+relationship ManyToMany {
+    FabricSeller{Fabric(name)} to Fabric{sellers(name)}
+    Project{fabrics} to Fabric{projects(name)}
+    Fabric{fabricTypes(name) required} to FabricTypes{fabrics(name)}
+	Fabric{materials(name) required} to Materials{fabrics(name)}
+	Fabric{uses(name)} to FabricUses{fabrics(name)}
+	Fabric{maintenances(name)} to FabricMaintenance{fabrics(name)}
+	Fabric{labels(name)} to FabricLabels{fabrics(name)}
+}
+
+relationship ManyToOne {
+    Fabric{from(name)} to FabricEditor{fabrics(name)}
+    Project{patron(name)} to Patron{projects(name)}
+    // FabricDesigners{fabrics(name)} to Fabrics{designer(name)}
+} 
+
+
+// Set pagination options
+paginate Patron, Fabric with infinite-scroll
+paginate Project, FabricEditor, FabricSeller with pagination
+
+service all with serviceImpl

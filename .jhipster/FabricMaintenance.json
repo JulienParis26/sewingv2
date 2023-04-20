@@ -1,0 +1,37 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419065748",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "fabric_maintenance",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Tissu - entretien, lavable, repassable, etc...",
+  "jpaMetamodelFiltering": false,
+  "name": "FabricMaintenance",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabric",
+      "otherEntityRelationshipName": "maintenances",
+      "ownerSide": false,
+      "relationshipName": "fabrics",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

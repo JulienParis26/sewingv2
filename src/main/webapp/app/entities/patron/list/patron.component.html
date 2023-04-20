@@ -1,0 +1,220 @@
+<div>
+  <h2 id="page-heading" data-cy="PatronHeading">
+    <span jhiTranslate="couturev2App.patron.home.title">Patrons</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="couturev2App.patron.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-patron"
+        [routerLink]="['/patron/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="couturev2App.patron.home.createLabel"> Créer un nouveau Patron </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="patrons?.length === 0">
+    <span jhiTranslate="couturev2App.patron.home.notFound">Aucun Patron trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="patrons && patrons.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ref">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.ref">Ref</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sexe">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.sexe">Sexe</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="buyDate">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.buyDate">Buy Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="publicationDate">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.publicationDate">Publication Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="creator">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.creator">Creator</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="difficultLevel">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.difficultLevel">Difficult Level</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fabricQualification">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.fabricQualification">Fabric Qualification</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="requiredFootage">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.requiredFootage">Required Footage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="requiredLaize">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.requiredLaize">Required Laize</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="clothingType">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.clothingType">Clothing Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="price">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.price">Price</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pictureTechnicalDrawing">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.pictureTechnicalDrawing">Picture Technical Drawing</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="carriedPicture1">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.carriedPicture1">Carried Picture 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="carriedPicture2">
+            <div class="d-flex">
+              <span jhiTranslate="couturev2App.patron.carriedPicture2">Carried Picture 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let patron of patrons; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/patron', patron.id, 'view']">{{ patron.id }}</a>
+          </td>
+          <td>{{ patron.name }}</td>
+          <td>{{ patron.ref }}</td>
+          <td jhiTranslate="{{ 'couturev2App.PatronType.' + patron.type }}">{{ patron.type }}</td>
+          <td jhiTranslate="{{ 'couturev2App.Category.' + patron.sexe }}">{{ patron.sexe }}</td>
+          <td>{{ patron.buyDate | formatMediumDate }}</td>
+          <td>{{ patron.publicationDate | formatMediumDate }}</td>
+          <td>{{ patron.creator }}</td>
+          <td jhiTranslate="{{ 'couturev2App.DifficultLevel.' + patron.difficultLevel }}">{{ patron.difficultLevel }}</td>
+          <td jhiTranslate="{{ 'couturev2App.Qualification.' + patron.fabricQualification }}">{{ patron.fabricQualification }}</td>
+          <td>{{ patron.requiredFootage }}</td>
+          <td>{{ patron.requiredLaize }}</td>
+          <td>{{ patron.clothingType }}</td>
+          <td>{{ patron.price }}</td>
+          <td>
+            <a
+              *ngIf="patron.pictureTechnicalDrawing"
+              (click)="openFile(patron.pictureTechnicalDrawing, patron.pictureTechnicalDrawingContentType)"
+            >
+              <img
+                [src]="'data:' + patron.pictureTechnicalDrawingContentType + ';base64,' + patron.pictureTechnicalDrawing"
+                style="max-height: 30px"
+                alt="patron image"
+              />
+            </a>
+            <span *ngIf="patron.pictureTechnicalDrawing"
+              >{{ patron.pictureTechnicalDrawingContentType }}, {{ byteSize(patron.pictureTechnicalDrawing) }}</span
+            >
+          </td>
+          <td>
+            <a *ngIf="patron.carriedPicture1" (click)="openFile(patron.carriedPicture1, patron.carriedPicture1ContentType)">
+              <img
+                [src]="'data:' + patron.carriedPicture1ContentType + ';base64,' + patron.carriedPicture1"
+                style="max-height: 30px"
+                alt="patron image"
+              />
+            </a>
+            <span *ngIf="patron.carriedPicture1">{{ patron.carriedPicture1ContentType }}, {{ byteSize(patron.carriedPicture1) }}</span>
+          </td>
+          <td>
+            <a *ngIf="patron.carriedPicture2" (click)="openFile(patron.carriedPicture2, patron.carriedPicture2ContentType)">
+              <img
+                [src]="'data:' + patron.carriedPicture2ContentType + ';base64,' + patron.carriedPicture2"
+                style="max-height: 30px"
+                alt="patron image"
+              />
+            </a>
+            <span *ngIf="patron.carriedPicture2">{{ patron.carriedPicture2ContentType }}, {{ byteSize(patron.carriedPicture2) }}</span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/patron', patron.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/patron', patron.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(patron)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

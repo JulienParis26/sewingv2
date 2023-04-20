@@ -1,0 +1,40 @@
+{
+  "couturev2App": {
+    "patron": {
+      "home": {
+        "title": "Patrons",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Patron",
+        "createOrEditLabel": "Create or edit a Patron",
+        "notFound": "No Patrons found"
+      },
+      "created": "A new Patron is created with identifier {{ param }}",
+      "updated": "A Patron is updated with identifier {{ param }}",
+      "deleted": "A Patron is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Patron {{ id }}?"
+      },
+      "detail": {
+        "title": "Patron"
+      },
+      "id": "ID",
+      "name": "Name",
+      "ref": "Ref",
+      "type": "Type",
+      "sexe": "Sexe",
+      "buyDate": "Buy Date",
+      "publicationDate": "Publication Date",
+      "creator": "Creator",
+      "difficultLevel": "Difficult Level",
+      "fabricQualification": "Fabric Qualification",
+      "requiredFootage": "Required Footage",
+      "requiredLaize": "Required Laize",
+      "clothingType": "Clothing Type",
+      "price": "Price",
+      "pictureTechnicalDrawing": "Picture Technical Drawing",
+      "carriedPicture1": "Carried Picture 1",
+      "carriedPicture2": "Carried Picture 2",
+      "projects": "Projects"
+    }
+  }
+}

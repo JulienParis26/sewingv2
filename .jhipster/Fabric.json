@@ -1,0 +1,189 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419065742",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "fabric",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ref",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "uni",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "buySize",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "elastic",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "elasticRate",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMax": "5",
+      "fieldValidateRulesMin": "1"
+    },
+    {
+      "fieldName": "colorName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "color1",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "color2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "color3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "laize",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "meterPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "meterBuy",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "meterInStock",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "buyDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "gramPerMeter",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sizeMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sizeMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "image1",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["required", "minbytes", "maxbytes"],
+      "fieldValidateRulesMaxbytes": "1024",
+      "fieldValidateRulesMinbytes": "256"
+    },
+    {
+      "fieldName": "image2",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["minbytes", "maxbytes"],
+      "fieldValidateRulesMaxbytes": "1024",
+      "fieldValidateRulesMinbytes": "256"
+    },
+    {
+      "fieldName": "image3",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["minbytes", "maxbytes"],
+      "fieldValidateRulesMaxbytes": "1024",
+      "fieldValidateRulesMinbytes": "256"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Fabric",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabricEditor",
+      "otherEntityRelationshipName": "fabrics",
+      "relationshipName": "from",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabricTypes",
+      "otherEntityRelationshipName": "fabrics",
+      "ownerSide": true,
+      "relationshipName": "fabricTypes",
+      "relationshipType": "many-to-many",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "materials",
+      "otherEntityRelationshipName": "fabrics",
+      "ownerSide": true,
+      "relationshipName": "materials",
+      "relationshipType": "many-to-many",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabricUses",
+      "otherEntityRelationshipName": "fabrics",
+      "ownerSide": true,
+      "relationshipName": "uses",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabricMaintenance",
+      "otherEntityRelationshipName": "fabrics",
+      "ownerSide": true,
+      "relationshipName": "maintenances",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabricLabels",
+      "otherEntityRelationshipName": "fabrics",
+      "ownerSide": true,
+      "relationshipName": "labels",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "fabricSeller",
+      "otherEntityRelationshipName": "fabric",
+      "ownerSide": false,
+      "relationshipName": "sellers",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "fabrics",
+      "ownerSide": false,
+      "relationshipName": "projects",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

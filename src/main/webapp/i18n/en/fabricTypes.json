@@ -1,0 +1,27 @@
+{
+  "couturev2App": {
+    "fabricTypes": {
+      "home": {
+        "title": "Fabric Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fabric Types",
+        "createOrEditLabel": "Create or edit a Fabric Types",
+        "notFound": "No Fabric Types found"
+      },
+      "created": "A new Fabric Types is created with identifier {{ param }}",
+      "updated": "A Fabric Types is updated with identifier {{ param }}",
+      "deleted": "A Fabric Types is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fabric Types {{ id }}?"
+      },
+      "detail": {
+        "title": "Fabric Types"
+      },
+      "id": "ID",
+      "name": "Name",
+      "code": "Code",
+      "description": "Description",
+      "fabrics": "Fabrics"
+    }
+  }
+}

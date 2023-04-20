@@ -1,0 +1,27 @@
+{
+  "couturev2App": {
+    "fabricSeller": {
+      "home": {
+        "title": "Fabric Sellers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fabric Seller",
+        "createOrEditLabel": "Create or edit a Fabric Seller",
+        "notFound": "No Fabric Sellers found"
+      },
+      "created": "A new Fabric Seller is created with identifier {{ param }}",
+      "updated": "A Fabric Seller is updated with identifier {{ param }}",
+      "deleted": "A Fabric Seller is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fabric Seller {{ id }}?"
+      },
+      "detail": {
+        "title": "Fabric Seller"
+      },
+      "id": "ID",
+      "name": "Name",
+      "webSite": "Web Site",
+      "description": "Description",
+      "fabric": "Fabric"
+    }
+  }
+}

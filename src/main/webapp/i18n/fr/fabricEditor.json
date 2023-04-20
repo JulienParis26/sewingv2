@@ -1,0 +1,31 @@
+{
+  "couturev2App": {
+    "fabricEditor": {
+      "home": {
+        "title": "FabricEditors",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fabric Editor",
+        "createOrEditLabel": "Créer ou éditer un Fabric Editor",
+        "notFound": "Aucun Fabric Editor trouvé"
+      },
+      "created": "Un nouveau Fabric Editor a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fabric Editor avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fabric Editor avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fabric Editor {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fabric Editor"
+      },
+      "id": "ID",
+      "name": "Name",
+      "printDate": "Print Date",
+      "number": "Number",
+      "editor": "Editor",
+      "language": "Language",
+      "price": "Price",
+      "image": "Image",
+      "fabrics": "Fabrics"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "couturev2App": {
+    "fabricLabels": {
+      "home": {
+        "title": "FabricLabels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fabric Labels",
+        "createOrEditLabel": "Créer ou éditer un Fabric Labels",
+        "notFound": "Aucun Fabric Labels trouvé"
+      },
+      "created": "Un nouveau Fabric Labels a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fabric Labels avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fabric Labels avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fabric Labels {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fabric Labels"
+      },
+      "id": "ID",
+      "name": "Name",
+      "code": "Code",
+      "fabrics": "Fabrics"
+    }
+  }
+}
