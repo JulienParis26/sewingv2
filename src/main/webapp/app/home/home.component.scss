@@ -21,3 +21,32 @@ Main page styles
     background-size: contain;
   }
 }
+
+/* ==========================================================================
+Images styles
+========================================================================== */
+.images {
+  max-width: 200px;
+  max-height: 200px;
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: middle;
+  //background: url('../../content/images/logo.jpg') no-repeat center center;
+  background-size: contain;
+  clip-path: ellipse(50% 50%); // rounded
+}
+
+.images-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.image-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+  color: #000;
+}
