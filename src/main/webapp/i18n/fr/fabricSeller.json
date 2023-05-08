@@ -2,26 +2,26 @@
   "couturev2App": {
     "fabricSeller": {
       "home": {
-        "title": "FabricSellers",
+        "title": "Vendeurs",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Fabric Seller",
-        "createOrEditLabel": "Créer ou éditer un Fabric Seller",
-        "notFound": "Aucun Fabric Seller trouvé"
+        "createLabel": "Créer un nouveau Vendeur de tissu",
+        "createOrEditLabel": "Créer ou éditer un Vendeur de tissu",
+        "notFound": "Aucun Vendeur de tissu trouvé"
       },
-      "created": "Un nouveau Fabric Seller a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Fabric Seller avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Fabric Seller avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau Vendeur de tissu a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Vendeur de tissu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Vendeur de tissu avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Fabric Seller {{ id }} ?"
+        "question": "Êtes-vous certain de vouloir supprimer le Vendeur de tissu {{ id }} ?"
       },
       "detail": {
-        "title": "Fabric Seller"
+        "title": "Vendeur de tissu"
       },
       "id": "ID",
-      "name": "Name",
-      "webSite": "Web Site",
+      "name": "Nom",
+      "webSite": "Site internet",
       "description": "Description",
-      "fabric": "Fabric"
+      "fabric": "Tissu"
     }
   }
 }

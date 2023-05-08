@@ -2,52 +2,52 @@
   "couturev2App": {
     "fabric": {
       "home": {
-        "title": "Fabrics",
+        "title": "Tissus",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Fabric",
-        "createOrEditLabel": "Créer ou éditer un Fabric",
-        "notFound": "Aucun Fabric trouvé"
+        "createLabel": "Créer un nouveau Tissu",
+        "createOrEditLabel": "Créer ou éditer un Tissu",
+        "notFound": "Aucun Tissu trouvé"
       },
-      "created": "Un nouveau Fabric a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Fabric avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Fabric avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau Tissu a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tissu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tissu avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Fabric {{ id }} ?"
+        "question": "Êtes-vous certain de vouloir supprimer le Tissu {{ id }} ?"
       },
       "detail": {
-        "title": "Fabric"
+        "title": "Tissu"
       },
       "id": "ID",
-      "name": "Name",
-      "ref": "Ref",
+      "name": "Nom",
+      "ref": "Référence",
       "uni": "Uni",
-      "buySize": "Buy Size",
-      "elastic": "Elastic",
-      "elasticRate": "Elastic Rate",
-      "rating": "Rating",
-      "colorName": "Color Name",
-      "color1": "Color 1",
-      "color2": "Color 2",
-      "color3": "Color 3",
-      "laize": "Laize",
-      "meterPrice": "Meter Price",
-      "meterBuy": "Meter Buy",
-      "meterInStock": "Meter In Stock",
-      "buyDate": "Buy Date",
-      "gramPerMeter": "Gram Per Meter",
-      "sizeMin": "Size Min",
-      "sizeMax": "Size Max",
+      "buySize": "Nombre de tissu acheté",
+      "elastic": "Elastique",
+      "elasticRate": "Taux d'élasticité",
+      "rating": "Note",
+      "colorName": "Couleur",
+      "color1": "Couleur 1",
+      "color2": "Couleur 2",
+      "color3": "Couleur 3",
+      "laize": "Largeur",
+      "meterPrice": "Prix du mètre",
+      "meterBuy": "Mètre acheté",
+      "meterInStock": "Mètre en stock",
+      "buyDate": "Date d'achat",
+      "gramPerMeter": "Gramme par mètre",
+      "sizeMin": "Taille minimal",
+      "sizeMax": "Taille maximal",
       "image1": "Image 1",
       "image2": "Image 2",
       "image3": "Image 3",
-      "from": "From",
-      "fabricTypes": "Fabric Types",
-      "materials": "Materials",
-      "uses": "Uses",
-      "maintenances": "Maintenances",
-      "labels": "Labels",
-      "sellers": "Sellers",
-      "projects": "Projects"
+      "from": "De",
+      "fabricTypes": "Type de tissu",
+      "materials": "Matériaux",
+      "uses": "Utilisations",
+      "maintenances": "Entretiens",
+      "labels": "Étiquettes",
+      "sellers": "Vendeurs",
+      "projects": "Projets"
     }
   }
 }

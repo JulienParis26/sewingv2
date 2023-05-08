@@ -2,9 +2,9 @@
   "couturev2App": {
     "Qualification": {
       "null": "",
-      "SHORT": "SHORT",
+      "SHORT": "COURT",
       "EXTENSIBLE": "EXTENSIBLE",
-      "RIGID": "RIGID"
+      "RIGID": "RIGIDE"
     }
   }
 }

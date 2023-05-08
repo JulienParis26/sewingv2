@@ -2,25 +2,25 @@
   "couturev2App": {
     "fabricMaintenance": {
       "home": {
-        "title": "FabricMaintenances",
+        "title": "Entretien des tissus",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Fabric Maintenance",
-        "createOrEditLabel": "Créer ou éditer un Fabric Maintenance",
-        "notFound": "Aucun Fabric Maintenance trouvé"
+        "createLabel": "Créer un nouveau Entretien de tissu",
+        "createOrEditLabel": "Créer ou éditer un Entretien de tissu",
+        "notFound": "Aucun Entretien de tissu trouvé"
       },
-      "created": "Un nouveau Fabric Maintenance a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Fabric Maintenance avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Fabric Maintenance avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau Entretien de tissu a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Entretien de tissu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Entretien de tissu avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Fabric Maintenance {{ id }} ?"
+        "question": "Êtes-vous certain de vouloir supprimer le Entretien de tissu {{ id }} ?"
       },
       "detail": {
-        "title": "Fabric Maintenance"
+        "title": "Entretien des tissus"
       },
       "id": "ID",
-      "name": "Name",
+      "name": "Nom",
       "code": "Code",
-      "fabrics": "Fabrics"
+      "fabrics": "Tissus"
     }
   }
 }

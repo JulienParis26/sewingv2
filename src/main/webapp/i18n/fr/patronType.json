@@ -2,9 +2,9 @@
   "couturev2App": {
     "PatronType": {
       "null": "",
-      "PAPER": "PAPER",
+      "PAPER": "PAPIER",
       "PDF": "PDF",
-      "ONLINE": "ONLINE"
+      "ONLINE": "SUR INTERNET"
     }
   }
 }

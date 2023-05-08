@@ -2,26 +2,26 @@
   "couturev2App": {
     "fabricTypes": {
       "home": {
-        "title": "FabricTypes",
+        "title": "Type de tissu",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Fabric Types",
-        "createOrEditLabel": "Créer ou éditer un Fabric Types",
-        "notFound": "Aucun Fabric Types trouvé"
+        "createLabel": "Créer un nouveau type de tissu",
+        "createOrEditLabel": "Créer ou éditer un type de tissu",
+        "notFound": "Aucun type de tissu trouvé"
       },
-      "created": "Un nouveau Fabric Types a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Fabric Types avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Fabric Types avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau type de tissu a été créé avec l'identifiant {{ param }}",
+      "updated": "Le type de tissu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le type de tissu avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Fabric Types {{ id }} ?"
+        "question": "Êtes-vous certain de vouloir supprimer le type de tissu {{ id }} ?"
       },
       "detail": {
-        "title": "Fabric Types"
+        "title": "Type de tissu"
       },
       "id": "ID",
-      "name": "Name",
+      "name": "Nom",
       "code": "Code",
       "description": "Description",
-      "fabrics": "Fabrics"
+      "fabrics": "Tissu"
     }
   }
 }

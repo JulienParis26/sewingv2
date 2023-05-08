@@ -18,23 +18,23 @@
         "title": "Patron"
       },
       "id": "ID",
-      "name": "Name",
-      "ref": "Ref",
+      "name": "Nom",
+      "ref": "Référence",
       "type": "Type",
       "sexe": "Sexe",
-      "buyDate": "Buy Date",
-      "publicationDate": "Publication Date",
-      "creator": "Creator",
-      "difficultLevel": "Difficult Level",
-      "fabricQualification": "Fabric Qualification",
-      "requiredFootage": "Required Footage",
-      "requiredLaize": "Required Laize",
-      "clothingType": "Clothing Type",
-      "price": "Price",
-      "pictureTechnicalDrawing": "Picture Technical Drawing",
-      "carriedPicture1": "Carried Picture 1",
-      "carriedPicture2": "Carried Picture 2",
-      "projects": "Projects"
+      "buyDate": "Date d'achat",
+      "publicationDate": "Date de parution",
+      "creator": "Créateur",
+      "difficultLevel": "Niveau de difficulté",
+      "fabricQualification": "Qualification du tissu",
+      "requiredFootage": "Superficie nécessaire",
+      "requiredLaize": "Largeur nécessaire",
+      "clothingType": "Type de vêtement",
+      "price": "Prix",
+      "pictureTechnicalDrawing": "Photo technique",
+      "carriedPicture1": "Photo 1",
+      "carriedPicture2": "Photo 2",
+      "projects": "Projets"
     }
   }
 }

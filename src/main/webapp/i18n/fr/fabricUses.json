@@ -2,25 +2,25 @@
   "couturev2App": {
     "fabricUses": {
       "home": {
-        "title": "FabricUses",
+        "title": "Utilisations des tissus",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Fabric Uses",
-        "createOrEditLabel": "Créer ou éditer un Fabric Uses",
-        "notFound": "Aucun Fabric Uses trouvé"
+        "createLabel": "Créer une nouvelle Utilisation de tissu",
+        "createOrEditLabel": "Créer ou éditer une Utilisation de tissu",
+        "notFound": "Aucun Utilisation de tissu trouvé"
       },
-      "created": "Un nouveau Fabric Uses a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Fabric Uses avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Fabric Uses avec l'identifiant {{ param }} a été supprimé",
+      "created": "Une nouvelle Utilisation de tissu a été créé avec l'identifiant {{ param }}",
+      "updated": "L'utilisation de tissu' avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "L'utilisation de tissu avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Fabric Uses {{ id }} ?"
+        "question": "Êtes-vous certain de vouloir supprimer l'utilisation de tissu {{ id }} ?"
       },
       "detail": {
-        "title": "Fabric Uses"
+        "title": "Utilisations des tissus"
       },
       "id": "ID",
-      "name": "Name",
+      "name": "Nom",
       "code": "Code",
-      "fabrics": "Fabrics"
+      "fabrics": "Tissus"
     }
   }
 }

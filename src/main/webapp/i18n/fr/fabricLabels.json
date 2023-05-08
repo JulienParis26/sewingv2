@@ -2,25 +2,25 @@
   "couturev2App": {
     "fabricLabels": {
       "home": {
-        "title": "FabricLabels",
+        "title": "Etiquettes de tissus",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Fabric Labels",
-        "createOrEditLabel": "Créer ou éditer un Fabric Labels",
-        "notFound": "Aucun Fabric Labels trouvé"
+        "createLabel": "Créer une nouvelle Etiquette de tissu",
+        "createOrEditLabel": "Créer ou éditer une Etiquette de tissu",
+        "notFound": "Aucune Etiquette de tissu trouvé"
       },
-      "created": "Un nouveau Fabric Labels a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Fabric Labels avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Fabric Labels avec l'identifiant {{ param }} a été supprimé",
+      "created": "Une nouvelle Etiquette de tissu a été créé avec l'identifiant {{ param }}",
+      "updated": "L'étiquette de tissu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "L'étiquette de tissu avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Fabric Labels {{ id }} ?"
+        "question": "Êtes-vous certain de vouloir supprimer l'étiquette de tissu {{ id }} ?"
       },
       "detail": {
-        "title": "Fabric Labels"
+        "title": "Etiquettes de tissu"
       },
       "id": "ID",
-      "name": "Name",
+      "name": "Nom",
       "code": "Code",
-      "fabrics": "Fabrics"
+      "fabrics": "Tissus"
     }
   }
 }

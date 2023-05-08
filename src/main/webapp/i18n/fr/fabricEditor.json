@@ -2,30 +2,30 @@
   "couturev2App": {
     "fabricEditor": {
       "home": {
-        "title": "FabricEditors",
+        "title": "Editeurs de tissus",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Fabric Editor",
-        "createOrEditLabel": "Créer ou éditer un Fabric Editor",
-        "notFound": "Aucun Fabric Editor trouvé"
+        "createLabel": "Créer un nouvel Editeur de tissu",
+        "createOrEditLabel": "Créer ou éditer un Editeur de tissu",
+        "notFound": "Aucun Editeur de tissu trouvé"
       },
-      "created": "Un nouveau Fabric Editor a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Fabric Editor avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Fabric Editor avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouvel Editeur de tissu a été créé avec l'identifiant {{ param }}",
+      "updated": "L'editeur de tissu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "L'editeur de tissu avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Fabric Editor {{ id }} ?"
+        "question": "Êtes-vous certain de vouloir supprimer l'editeur de tissu {{ id }} ?"
       },
       "detail": {
-        "title": "Fabric Editor"
+        "title": "Editeur de tissu"
       },
       "id": "ID",
-      "name": "Name",
-      "printDate": "Print Date",
-      "number": "Number",
-      "editor": "Editor",
-      "language": "Language",
-      "price": "Price",
+      "name": "Nom",
+      "printDate": "Date de l'impression",
+      "number": "Numéro",
+      "editor": "Editeur",
+      "language": "Langue",
+      "price": "Prix",
       "image": "Image",
-      "fabrics": "Fabrics"
+      "fabrics": "Tissus"
     }
   }
 }

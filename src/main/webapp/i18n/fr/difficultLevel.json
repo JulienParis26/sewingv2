@@ -2,8 +2,8 @@
   "couturev2App": {
     "DifficultLevel": {
       "null": "",
-      "BEGINNER": "BEGINNER",
-      "INTERMEDIATE": "INTERMEDIATE",
+      "BEGINNER": "DEBUTANT",
+      "INTERMEDIATE": "INTERMEDIAIRE",
       "EXPERT": "EXPERT"
     }
   }

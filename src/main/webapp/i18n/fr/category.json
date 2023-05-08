@@ -2,9 +2,9 @@
   "couturev2App": {
     "Category": {
       "null": "",
-      "KIDS": "KIDS",
-      "MAN": "MAN",
-      "WOMAN": "WOMAN"
+      "KIDS": "ENFANT",
+      "MAN": "HOMME",
+      "WOMAN": "FEMME"
     }
   }
 }

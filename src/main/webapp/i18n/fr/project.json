@@ -18,17 +18,17 @@
         "title": "Project"
       },
       "id": "ID",
-      "name": "Name",
-      "ref": "Ref",
-      "creationDate": "Creation Date",
-      "haberdasheryUse": "Haberdashery Use",
-      "accessoryUse": "Accessory Use",
+      "name": "Nom",
+      "ref": "Référence",
+      "creationDate": "Date de création",
+      "haberdasheryUse": "Utilisation",
+      "accessoryUse": "Usage accessoire",
       "image1": "Image 1",
       "image2": "Image 2",
       "image3": "Image 3",
       "image4": "Image 4",
       "patron": "Patron",
-      "fabrics": "Fabrics"
+      "fabrics": "Tissus"
     }
   }
 }

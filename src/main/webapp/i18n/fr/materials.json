@@ -2,26 +2,26 @@
   "couturev2App": {
     "materials": {
       "home": {
-        "title": "Materials",
+        "title": "Materiaux",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Materials",
-        "createOrEditLabel": "Créer ou éditer un Materials",
-        "notFound": "Aucun Materials trouvé"
+        "createLabel": "Créer un nouveau Materiaux",
+        "createOrEditLabel": "Créer ou éditer un Materiaux",
+        "notFound": "Aucun Materiaux trouvé"
       },
-      "created": "Un nouveau Materials a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Materials avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Materials avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau Materiaux a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Materiaux avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Materiaux avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Materials {{ id }} ?"
+        "question": "Êtes-vous certain de vouloir supprimer le Materiaux {{ id }} ?"
       },
       "detail": {
-        "title": "Materials"
+        "title": "Materiaux"
       },
       "id": "ID",
-      "name": "Name",
-      "webSite": "Web Site",
+      "name": "Nom",
+      "webSite": "Site internet",
       "description": "Description",
-      "fabrics": "Fabrics"
+      "fabrics": "Tissus"
     }
   }
 }
