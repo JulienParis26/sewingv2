@@ -26,8 +26,8 @@ Main page styles
 Images styles
 ========================================================================== */
 .images {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 100px;
+  max-height: 100px;
   display: inline-block;
   margin: 0 10px;
   vertical-align: middle;
@@ -40,12 +40,27 @@ Images styles
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+//@media only screen and (max-width: 600px) {
+//  .images-container {
+//    flex-wrap: wrap;
+//  }
+//}
+
+.images-container .text-au-dessus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 20px;
+  color: black;
 }
 
 .image-text {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 15px;
+  //font-weight: bold;
   margin-top: 10px;
   text-align: center;
   color: #000;
